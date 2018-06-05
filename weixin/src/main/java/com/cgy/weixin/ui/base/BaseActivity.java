@@ -242,7 +242,7 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
         mToolbarTitle.setText(title);
     }
 
-    public void setmToolbarSubTitle(String subTitle) {
+    public void setToolbarSubTitle(String subTitle) {
         mToolbarSubTitle.setText(subTitle);
         mToolbarSubTitle.setVisibility(subTitle.length() > 0 ? View.VISIBLE : View.GONE);
     }

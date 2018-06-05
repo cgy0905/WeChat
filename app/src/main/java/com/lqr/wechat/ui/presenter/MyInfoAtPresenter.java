@@ -15,7 +15,10 @@ import com.lqr.wechat.ui.base.BasePresenter;
 import com.lqr.wechat.ui.view.IMyInfoAtView;
 import com.lqr.wechat.util.LogUtils;
 import com.lqr.wechat.util.UIUtils;
+import com.qiniu.android.http.ResponseInfo;
 import com.qiniu.android.storage.UploadManager;
+
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -56,7 +59,7 @@ public class MyInfoAtPresenter extends BasePresenter<IMyInfoAtView> {
                         String domain = result.getDomain();
                         String token = result.getToken();
                         //上传到七牛
-                        mUploadManager.put(imageFile, null, token, (s, responseInfo, jsonObject) -> {
+                        mUploadManager.put(imageFile, null, token, (String s, ResponseInfo responseInfo, JSONObject jsonObject) -> {
                             if (responseInfo.isOK()) {
                                 String key = jsonObject.optString("key");
                                 String imageUrl = "http://" + domain + "/" + key;

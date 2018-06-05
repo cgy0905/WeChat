@@ -59,17 +59,14 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> {
         mContext.showWaitingDialog(UIUtils.getString(R.string.please_wait));
         ApiRetrofit.getInstance().checkPhoneAvailable(AppConst.REGION, phone)
                 .subscribeOn(Schedulers.io())
-                .flatMap(new Func1<CheckPhoneResponse, Observable<SendCodeResponse>>() {
-                    @Override
-                    public Observable<SendCodeResponse> call(CheckPhoneResponse checkPhoneResponse) {
-                        int code = checkPhoneResponse.getCode();
-                        if (code == 200) {
-                            return ApiRetrofit.getInstance().sendCode(AppConst.REGION, phone);
-                        } else {
-                            return Observable.error(new ServerException(UIUtils.getString(R.string.phone_not_available)));
-                        }
-
+                .flatMap((Func1<CheckPhoneResponse, Observable<SendCodeResponse>>) checkPhoneResponse -> {
+                    int code = checkPhoneResponse.getCode();
+                    if (code == 200) {
+                        return ApiRetrofit.getInstance().sendCode(AppConst.REGION, phone);
+                    } else {
+                        return Observable.error(new ServerException(UIUtils.getString(R.string.phone_not_available)));
                     }
+
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(sendCodeResponse -> {
@@ -140,7 +137,7 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> {
             return;
         }
         if (TextUtils.isEmpty(code)) {
-            UIUtils.showToast(UIUtils.getString(R.string.vertify_code_not_empty));
+            UIUtils.showToast(UIUtils.getString(R.string.verify_code_not_empty));
             return;
         }
 
@@ -150,7 +147,7 @@ public class RegisterPresenter extends BasePresenter<IRegisterView> {
                     if (code1 == 200) {
                         return ApiRetrofit.getInstance().register(nickName, password, verifyCodeResponse.getResult().getVerification_token());
                     } else {
-                        return Observable.error(new ServerException(UIUtils.getString(R.string.vertify_code_error) + code1));
+                        return Observable.error(new ServerException(UIUtils.getString(R.string.verify_code_error) + code1));
                     }
                 })
                 .flatMap((Func1<RegisterResponse, Observable<LoginResponse>>) registerResponse -> {

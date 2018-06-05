@@ -56,15 +56,12 @@ public class RegisterAtPresenter extends BasePresenter<IRegisterAtView> {
         mContext.showWaitingDialog(UIUtils.getString(R.string.please_wait));
         ApiRetrofit.getInstance().checkPhoneAvailable(AppConst.REGION, phone)
                 .subscribeOn(Schedulers.io())
-                .flatMap(new Func1<CheckPhoneResponse, Observable<SendCodeResponse>>() {
-                    @Override
-                    public Observable<SendCodeResponse> call(CheckPhoneResponse checkPhoneResponse) {
-                        int code = checkPhoneResponse.getCode();
-                        if (code == 200) {
-                            return ApiRetrofit.getInstance().sendCode(AppConst.REGION, phone);
-                        } else {
-                            return Observable.error(new ServerException(UIUtils.getString(R.string.phone_not_available)));
-                        }
+                .flatMap((Func1<CheckPhoneResponse, Observable<SendCodeResponse>>) checkPhoneResponse -> {
+                    int code = checkPhoneResponse.getCode();
+                    if (code == 200) {
+                        return ApiRetrofit.getInstance().sendCode(AppConst.REGION, phone);
+                    } else {
+                        return Observable.error(new ServerException(UIUtils.getString(R.string.phone_not_available)));
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -154,15 +151,12 @@ public class RegisterAtPresenter extends BasePresenter<IRegisterAtView> {
                         }
                     }
                 })
-                .flatMap(new Func1<RegisterResponse, Observable<LoginResponse>>() {
-                    @Override
-                    public Observable<LoginResponse> call(RegisterResponse registerResponse) {
-                        int code = registerResponse.getCode();
-                        if (code == 200) {
-                            return ApiRetrofit.getInstance().login(AppConst.REGION, phone, password);
-                        } else {
-                            return Observable.error(new ServerException(UIUtils.getString(R.string.register_error) + code));
-                        }
+                .flatMap((Func1<RegisterResponse, Observable<LoginResponse>>) registerResponse -> {
+                    int code12 = registerResponse.getCode();
+                    if (code12 == 200) {
+                        return ApiRetrofit.getInstance().login(AppConst.REGION, phone, password);
+                    } else {
+                        return Observable.error(new ServerException(UIUtils.getString(R.string.register_error) + code12));
                     }
                 })
                 .subscribeOn(Schedulers.io())

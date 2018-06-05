@@ -1,21 +1,29 @@
 package com.cgy.weixin.api;
 
+import com.cgy.weixin.model.response.ChangePasswordResponse;
 import com.cgy.weixin.model.response.CheckPhoneResponse;
 import com.cgy.weixin.model.response.GetGroupInfoResponse;
 import com.cgy.weixin.model.response.GetGroupMemberResponse;
 import com.cgy.weixin.model.response.GetGroupResponse;
 import com.cgy.weixin.model.response.GetTokenResponse;
+import com.cgy.weixin.model.response.GetUserInfoByIdResponse;
 import com.cgy.weixin.model.response.LoginResponse;
+import com.cgy.weixin.model.response.QiNiuTokenResponse;
 import com.cgy.weixin.model.response.RegisterResponse;
+import com.cgy.weixin.model.response.ResetPasswordResponse;
 import com.cgy.weixin.model.response.SendCodeResponse;
+import com.cgy.weixin.model.response.SetNameResponse;
+import com.cgy.weixin.model.response.SetPortraitResponse;
 import com.cgy.weixin.model.response.UserRelationshipResponse;
 import com.cgy.weixin.model.response.VerifyCodeResponse;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Url;
 import rx.Observable;
 
 /**
@@ -64,6 +72,37 @@ public interface MyApi {
     //根据群id获取群组成员
     @POST("group/{groupId}/members")
     Observable<GetGroupMemberResponse> getGroupsMember(@Path("groupId") String groupId);
+
+    //设置自己的昵称
+    @POST("user/set_nickname")
+    Observable<SetNameResponse> setName(RequestBody body);
+
+    //设置用户头像
+    @POST("user/set_portrait_uri")
+    Observable<SetPortraitResponse> setPortrait(RequestBody body);
+
+    //当前登录用户通过旧密码设置新密码 前置条件需要登录才能访问
+    @POST("user/change_password")
+    Observable<ChangePasswordResponse> changePassword(RequestBody body);
+
+    //通过手机验证码重置密码
+    @POST("user/reset_password")
+    Observable<ResetPasswordResponse> resetPassword(RequestBody body);
+
+    //根据 id 去服务器查询用户信息
+    @GET("user{userid}")
+    Observable<GetUserInfoByIdResponse> getUserInfoById(@Path("userid") String userId);
+
+    //得到七牛的token
+    @GET("user/get_image_token")
+    Observable<QiNiuTokenResponse> getQiNiuToken();
+
+    //下载图片
+    @GET
+    Observable<ResponseBody> downloadPic(@Url String mUrl);
+
+
+
 
 
 }

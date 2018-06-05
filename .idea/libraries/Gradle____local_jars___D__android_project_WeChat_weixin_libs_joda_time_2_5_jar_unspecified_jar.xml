@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: __local_jars__:D.\android_project\WeChat\weixin\libs\joda-time-2.5.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/weixin/libs/joda-time-2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/weixin/libs/joda-time-2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

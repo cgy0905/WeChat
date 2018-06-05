@@ -29,7 +29,7 @@ import java.util.List;
 
 import butterknife.Bind;
 
-public class MainActivity extends BaseActivity<IMainView, MainPresenter> implements ViewPager.OnPageChangeListener {
+public class MainActivity extends BaseActivity<IMainView, MainPresenter> implements IMainView,ViewPager.OnPageChangeListener {
 
     private List<BaseFragment> mFragmentList = new ArrayList<>(4);
 
@@ -314,5 +314,10 @@ public class MainActivity extends BaseActivity<IMainView, MainPresenter> impleme
 
     private void unRegisterBR() {
         BroadcastManager.getInstance(this).unregister(AppConst.FETCH_COMPLETE);
+    }
+
+    @Override
+    public TextView getTvMessageCount() {
+        return mTvMessageCount;
     }
 }

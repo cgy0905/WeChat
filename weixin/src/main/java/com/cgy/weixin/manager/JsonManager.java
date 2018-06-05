@@ -7,7 +7,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 
 import java.util.List;
 
-import retrofit2.HttpException;
+import retrofit2.adapter.rxjava.HttpException;
 
 /**
  * Created by cgy

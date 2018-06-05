@@ -36,13 +36,11 @@ import com.yunzhanghu.redpacketsdk.RedPacket;
 import com.yunzhanghu.redpacketsdk.bean.RedPacketInfo;
 import com.yunzhanghu.redpacketsdk.bean.TokenData;
 import com.yunzhanghu.redpacketsdk.constant.RPConstant;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.litepal.LitePal;
 
 import java.util.List;
-
 import io.rong.imlib.AnnotationNotFoundException;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
@@ -52,9 +50,9 @@ import io.rong.message.ContactNotificationMessage;
 import io.rong.message.GroupNotificationMessage;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.HttpException;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.HttpException;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
