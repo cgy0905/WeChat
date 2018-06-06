@@ -173,8 +173,8 @@
     <string name="postscript_tip">你需要发送验证申请，等对方通过</string>
     <string name="disallow_it_see_my_circle">不让他(她)看我的朋友圈</string>
     <string name="send">发送</string>
-    <string name="rquest_sent_success">请求已发送</string>
-    <string name="rquest_sent_fail">请求发送失败</string>
+    <string name="request_sent_success">请求已发送</string>
+    <string name="request_sent_fail">请求发送失败</string>
 
     <!--会话界面-->
     <string name="please_to_talk">按住 说话</string>

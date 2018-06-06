@@ -3,6 +3,8 @@ package com.cgy.weixin.api;
 import com.cgy.weixin.api.base.BaseApiRetrofit;
 import com.cgy.weixin.model.request.ChangePasswordRequest;
 import com.cgy.weixin.model.request.CheckPhoneRequest;
+import com.cgy.weixin.model.request.DeleteFriendRequest;
+import com.cgy.weixin.model.request.FriendInvitationRequest;
 import com.cgy.weixin.model.request.LoginRequest;
 import com.cgy.weixin.model.request.RegisterRequest;
 import com.cgy.weixin.model.request.ResetPasswordRequest;
@@ -12,11 +14,14 @@ import com.cgy.weixin.model.request.SetPortraitRequest;
 import com.cgy.weixin.model.request.VerifyCodeRequest;
 import com.cgy.weixin.model.response.ChangePasswordResponse;
 import com.cgy.weixin.model.response.CheckPhoneResponse;
+import com.cgy.weixin.model.response.DeleteFriendResponse;
+import com.cgy.weixin.model.response.FriendRelationshipResponse;
 import com.cgy.weixin.model.response.GetGroupInfoResponse;
 import com.cgy.weixin.model.response.GetGroupMemberResponse;
 import com.cgy.weixin.model.response.GetGroupResponse;
 import com.cgy.weixin.model.response.GetTokenResponse;
 import com.cgy.weixin.model.response.GetUserInfoByIdResponse;
+import com.cgy.weixin.model.response.GetUserInfoByPhoneResponse;
 import com.cgy.weixin.model.response.LoginResponse;
 import com.cgy.weixin.model.response.QiNiuTokenResponse;
 import com.cgy.weixin.model.response.RegisterResponse;
@@ -151,5 +156,17 @@ public class ApiRetrofit extends BaseApiRetrofit{
 
     public Observable<GetUserInfoByIdResponse> getUserInfoById(String userId) {
         return mApi.getUserInfoById(userId);
+    }
+
+    public Observable<GetUserInfoByPhoneResponse> getUserInfoFromPhone(String region, String phone) {
+        return mApi.getUserInfoFromPhone(region, phone);
+    }
+
+    public Observable<DeleteFriendResponse> deleteFriend(String friendId) {
+        return mApi.deleteFriend(getRequestBody(new DeleteFriendRequest(friendId)));
+    }
+    //好友
+    public Observable<FriendRelationshipResponse> sendFriendInvitation(String userId, String addFriendMessage) {
+        return mApi.sendFriendInvitation(getRequestBody(new FriendInvitationRequest(userId, addFriendMessage)));
     }
 }

@@ -2,11 +2,14 @@ package com.cgy.weixin.api;
 
 import com.cgy.weixin.model.response.ChangePasswordResponse;
 import com.cgy.weixin.model.response.CheckPhoneResponse;
+import com.cgy.weixin.model.response.DeleteFriendResponse;
+import com.cgy.weixin.model.response.FriendRelationshipResponse;
 import com.cgy.weixin.model.response.GetGroupInfoResponse;
 import com.cgy.weixin.model.response.GetGroupMemberResponse;
 import com.cgy.weixin.model.response.GetGroupResponse;
 import com.cgy.weixin.model.response.GetTokenResponse;
 import com.cgy.weixin.model.response.GetUserInfoByIdResponse;
+import com.cgy.weixin.model.response.GetUserInfoByPhoneResponse;
 import com.cgy.weixin.model.response.LoginResponse;
 import com.cgy.weixin.model.response.QiNiuTokenResponse;
 import com.cgy.weixin.model.response.RegisterResponse;
@@ -93,6 +96,18 @@ public interface MyApi {
     @GET("user{userid}")
     Observable<GetUserInfoByIdResponse> getUserInfoById(@Path("userid") String userId);
 
+    //通过国家码和手机号查询用户信息
+    @GET("user/find/{region}/{phone}")
+    Observable<GetUserInfoByPhoneResponse> getUserInfoFromPhone(@Path("region") String region, @Path("phone") String phone);
+
+    //发送好友邀请
+    @POST("friendship/invite")
+    Observable<FriendRelationshipResponse> sendFriendInvitation(RequestBody body);
+
+    //删除好友
+    @POST("friendship/set_display_name")
+    Observable<DeleteFriendResponse> deleteFriend(RequestBody body);
+
     //得到七牛的token
     @GET("user/get_image_token")
     Observable<QiNiuTokenResponse> getQiNiuToken();
@@ -100,9 +115,6 @@ public interface MyApi {
     //下载图片
     @GET
     Observable<ResponseBody> downloadPic(@Url String mUrl);
-
-
-
 
 
 }

@@ -32,7 +32,7 @@ import rx.schedulers.Schedulers;
  * Created by cgy
  * 2018/6/4  11:32
  */
-class QRCodeCardActivity extends BaseActivity{
+public class QRCodeCardActivity extends BaseActivity{
 
     private UserInfo mUserInfo;
     private String mGroupId;

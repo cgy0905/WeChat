@@ -153,6 +153,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.MainActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.NewFriendActivity" />
@@ -161,6 +162,12 @@
         <activity android:name=".ui.activity.MyInfoActivity" />
         <activity android:name=".ui.activity.ShowBigImageActivity" />
         <activity android:name=".ui.activity.SessionActivity" />
+        <activity android:name=".ui.activity.AboutActivity" />
+        <activity android:name=".ui.activity.QRCodeCardActivity" />
+        <activity android:name=".ui.activity.SearchUserActivity" />
+        <activity android:name=".ui.activity.UserInfoActivity" />
+        <activity android:name=".ui.activity.PostScriptActivity" />
+
     </application>
 
 </manifest>
