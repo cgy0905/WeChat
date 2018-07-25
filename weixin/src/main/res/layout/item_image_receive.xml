@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!--显示时间-->
     <TextView
@@ -14,23 +15,22 @@
         android:background="@drawable/shape_notification_bg"
         android:gravity="center"
         android:paddingBottom="2dp"
-        android:paddingTop="2dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
+        android:paddingTop="2dp"
         android:text="下午 5点"
         android:textColor="@color/white"
-        android:textSize="12sp"/>
+        android:textSize="12sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:gravity="left"
         android:orientation="horizontal"
-        android:paddingTop="10dp"
         android:paddingBottom="20dp"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp">
+        android:paddingRight="5dp"
+        android:paddingTop="10dp">
 
         <!--人物头像-->
 
@@ -40,7 +40,7 @@
             android:layout_height="40dp"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:src="@mipmap/default_header"/>
+            android:src="@mipmap/default_header" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -54,70 +54,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:text="沧海"
                 android:textColor="#666666"
                 android:textSize="12sp"
-                android:text="沧海"
-                android:visibility="visible"/>
+                android:visibility="visible" />
 
-            <LinearLayout
+            <com.cgy.weixin.widget.BubbleImageView
+                android:id="@+id/bivPic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:autoLink="phone|email|map|web"
-                    android:background="@drawable/img_bubble_receive"
-                    android:gravity="left|center_vertical"
-                    android:linksClickable="true"
-                    android:maxWidth="240dp"
-                    android:minHeight="40dp"
-                    android:paddingBottom="12dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:paddingTop="12dp"
-                    android:text="嗯嗯嗯嗯嗯"
-                    android:textColor="#444444"
-                    android:textColorLink="#666666"
-                    android:textSize="16sp"/>
-
-                <ProgressBar
-                    android:id="@+id/pbSending"
-                    style="?android:attr/progressBarStyleSmall"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:visibility="gone"/>
-
-                <LinearLayout
-                    android:id="@+id/llError"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/ivError"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:src="@mipmap/img_error"/>
-
-                    <TextView
-                        android:id="@+id/tvRetry"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="重试"
-                        android:visibility="gone"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:adjustViewBounds="true"
+                android:maxHeight="150dp"
+                android:minHeight="80dp"
+                android:minWidth="80dp"
+                android:scaleType="fitCenter"
+                app:bubble_angle="10dp"
+                app:bubble_arrowHeight="10dp"
+                app:bubble_arrowLocation="left"
+                app:bubble_arrowOffset="-5dp"
+                app:bubble_arrowTop="20dp"
+                app:bubble_arrowWidth="8dp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/llError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivError"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:src="@mipmap/img_error" />
+
+            <TextView
+                android:id="@+id/tvRetry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="重试"
+                android:visibility="gone" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

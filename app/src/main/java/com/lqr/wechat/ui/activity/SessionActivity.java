@@ -450,7 +450,7 @@ public class SessionActivity extends BaseFragmentActivity<ISessionAtView, Sessio
                                 imageFileSource = ImageUtils.genThumbImgFile(imageItem.path);
                                 imageFileThumb = ImageUtils.genThumbImgFile(imageFileSource.getAbsolutePath());
                             }
-                            if (imageFileSource != null && imageFileSource != null)
+                            if (imageFileSource != null && imageFileThumb != null)
                                 mPresenter.sendImgMsg(imageFileThumb, imageFileSource);
                         }
                     }

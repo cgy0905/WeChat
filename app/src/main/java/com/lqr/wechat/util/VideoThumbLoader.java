@@ -71,14 +71,14 @@ public class VideoThumbLoader {
 
     }
 
-    public void showThumb(String path, ImageView imgview, int width, int height) {
+    public void showThumb(String path, ImageView imgView, int width, int height) {
 
         if (getVideoThumbToCache(path) == null) {
             // 异步加载
-            imgview.setTag(path);
-            new MyBobAsynctack(imgview, path, width, height).execute(path);
+            imgView.setTag(path);
+            new MyBobAsynctack(imgView, path, width, height).execute(path);
         } else {
-            imgview.setImageBitmap(getVideoThumbToCache(path));
+            imgView.setImageBitmap(getVideoThumbToCache(path));
         }
 
     }
@@ -135,9 +135,9 @@ public class VideoThumbLoader {
 
     }
 
-    private static Bitmap createVideoThumbnail(String vidioPath, int width,
+    private static Bitmap createVideoThumbnail(String videoPath, int width,
                                                int height, int kind) {
-        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(vidioPath, kind);
+        Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(videoPath, kind);
         bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
                 ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
         return bitmap;

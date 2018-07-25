@@ -52,7 +52,7 @@ public class SearchUserActivity extends BaseActivity<ISearchUserView, SearchUser
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String content = mEtSearchContent.getFontFeatureSettings().toString().trim();
+                String content = mEtSearchContent.getText().toString().trim();
                 mRlNoResultTip.setVisibility(View.GONE);
                 if (content.length() > 0) {
                     mLlSearch.setVisibility(View.VISIBLE);
@@ -67,6 +67,7 @@ public class SearchUserActivity extends BaseActivity<ISearchUserView, SearchUser
 
             }
         });
+
         mLlSearch.setOnClickListener(v -> mPresenter.searchUser());
     }
 

@@ -167,7 +167,7 @@ public interface MyApi {
 
     //创建者将群组成员提出群组
     @POST("group/kick")
-    Observable<DeleteGroupMemberResponse> deleGroupMember(@Body RequestBody body);
+    Observable<DeleteGroupMemberResponse> deleteGroupMember(@Body RequestBody body);
 
     //创建者更改群组昵称
     @POST("group/rename")
@@ -179,8 +179,8 @@ public interface MyApi {
 
     //创建者解散群组
     @POST("group/dismiss")
-    Observable<QuitGroupResponse> dissmissGroup(@Body RequestBody body);
-//    Observable<DismissGroupResponse> dissmissGroup(@Body RequestBody body);
+    Observable<QuitGroupResponse> dismissGroup(@Body RequestBody body);
+//    Observable<DismissGroupResponse> dismissGroup(@Body RequestBody body);
 
     //修改自己的当前的群昵称
     @POST("group/set_display_name")
@@ -188,7 +188,7 @@ public interface MyApi {
 
     //当前用户加入某群组
     @POST("group/join")
-    Observable<JoinGroupResponse> JoinGroup(@Body RequestBody body);
+    Observable<JoinGroupResponse> joinGroup(@Body RequestBody body);
 
     //获取默认群组 和 聊天室
     @GET("misc/demo_square")

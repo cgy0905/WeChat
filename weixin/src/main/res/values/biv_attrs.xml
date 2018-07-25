@@ -14,18 +14,6 @@
         <attr name="bubble_showText" format="boolean" />
         <attr name="bubble_showShadow" format="boolean" />
 
-
-
-
-
     </declare-styleable>
-
-
-
-
-
-
-
-
 
 </resources>

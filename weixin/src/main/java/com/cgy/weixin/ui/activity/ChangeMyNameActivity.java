@@ -26,6 +26,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by cgy
  * 2018/5/30  15:27
+ * 更改名字界面
  */
 public class ChangeMyNameActivity extends BaseActivity {
 

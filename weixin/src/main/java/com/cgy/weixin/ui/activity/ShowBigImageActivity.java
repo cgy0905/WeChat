@@ -111,6 +111,7 @@ public class ShowBigImageActivity extends BaseActivity{
                 getWindow().getDecorView().getRootView(),
                 Gravity.BOTTOM, 0, 0);
         mPopupWindow.setOnDismissListener(() -> PopupWindowUtils.makeWindowLight(ShowBigImageActivity.this));
+        PopupWindowUtils.makeWindowDark(ShowBigImageActivity.this);
     }
 
     private boolean saveToDisk(ResponseBody body) {

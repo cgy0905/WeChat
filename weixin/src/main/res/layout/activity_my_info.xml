@@ -92,7 +92,7 @@
             app:left_text_margin_left="30px"
             app:left_text_size="16sp"
             app:right_image_margin_right="40px"
-            app:right_src="@mipmap/ic_qr_code"/>
+            app:right_src="@mipmap/ic_gy_code"/>
         <View
             style="@style/Line"
             android:layout_marginLeft="30px"

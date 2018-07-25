@@ -98,7 +98,8 @@ public class SessionAdapter extends LQRAdapterForRecyclerView<Message> {
         //根据消息类型设置消息显示内容
         MessageContent msgContent = item.getContent();
         if (msgContent instanceof TextMessage) {
-            MoonUtils.identifyFaceExpression(mContext, helper.getView(R.id.tvText), ((TextMessage) msgContent).getContent(), ImageSpan.ALIGN_BOTTOM);
+            MoonUtils.identifyFaceExpression(mContext, helper.getView(R.id.tvText),
+                    ((TextMessage) msgContent).getContent(), ImageSpan.ALIGN_BOTTOM);
         } else if (msgContent instanceof ImageMessage) {
             ImageMessage imageMessage = (ImageMessage) msgContent;
             BubbleImageView bivPic = helper.getView(R.id.bivPic);

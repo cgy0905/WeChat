@@ -4,5 +4,15 @@ package com.cgy.weixin.model.response;
  * Created by cgy
  * 2018/6/12  15:16
  */
-class DeleteGroupMemberResponse {
+public class DeleteGroupMemberResponse {
+
+    private  int code;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 }

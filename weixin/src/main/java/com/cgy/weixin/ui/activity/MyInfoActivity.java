@@ -59,7 +59,7 @@ public class MyInfoActivity extends BaseActivity<IMyInfoView, MyInfoPresenter> i
             Intent intent = new Intent(this, ImageGridActivity.class);
             startActivityForResult(intent, REQUEST_IMAGE_PICKER);
         });
-        mOivQRCodeCard.setOnClickListener(v -> jumpToActivity(QRCodeCardActivity.class));
+        mOivQRCodeCard.setOnClickListener(v -> jumpToActivity(GYCodeCardActivity.class));
         mOivName.setOnClickListener(v -> jumpToActivity(ChangeMyNameActivity.class));
     }
 

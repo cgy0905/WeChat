@@ -374,7 +374,7 @@ public class DBManager {
 
     /*================== Groups start ==================*/
 
-    private void saveOrUpdateGroup(Groups groups) {
+    public void saveOrUpdateGroup(Groups groups) {
         if (groups != null) {
             String portrait = groups.getPortraitUri();
             if (TextUtils.isEmpty(portrait)) {

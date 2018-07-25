@@ -235,8 +235,8 @@ public class ApiRetrofit extends BaseApiRetrofit {
         return mApi.addGroupMember(getRequestBody(new AddGroupMemberRequest(groupId, memberIds)));
     }
 
-    public Observable<DeleteGroupMemberResponse> deleGroupMember(String groupId, List<String> memberIds) {
-        return mApi.deleGroupMember(getRequestBody(new DeleteGroupMemberRequest(groupId, memberIds)));
+    public Observable<DeleteGroupMemberResponse> deleteGroupMember(String groupId, List<String> memberIds) {
+        return mApi.deleteGroupMember(getRequestBody(new DeleteGroupMemberRequest(groupId, memberIds)));
     }
 
     public Observable<SetGroupNameResponse> setGroupName(String groupId, String name) {
@@ -247,19 +247,19 @@ public class ApiRetrofit extends BaseApiRetrofit {
         return mApi.quitGroup(getRequestBody(new QuitGroupRequest(groupId)));
     }
 
-    public Observable<QuitGroupResponse> dissmissGroup(String groupId) {
-        return mApi.dissmissGroup(getRequestBody(new DismissGroupRequest(groupId)));
+    public Observable<QuitGroupResponse> dismissGroup(String groupId) {
+        return mApi.dismissGroup(getRequestBody(new DismissGroupRequest(groupId)));
     }
-//    public Observable<DismissGroupResponse> dissmissGroup(String groupId) {
-//        return mApi.dissmissGroup(getRequestBody(new DismissGroupRequest(groupId)));
+//    public Observable<DismissGroupResponse> dismissGroup(String groupId) {
+//        return mApi.dismissGroup(getRequestBody(new DismissGroupRequest(groupId)));
 //    }
 
     public Observable<SetGroupDisplayNameResponse> setGroupDisplayName(String groupId, String displayName) {
         return mApi.setGroupDisplayName(getRequestBody(new SetGroupDisplayNameRequest(groupId, displayName)));
     }
 
-    public Observable<JoinGroupResponse> JoinGroup(String groupId) {
-        return mApi.JoinGroup(getRequestBody(new JoinGroupRequest(groupId)));
+    public Observable<JoinGroupResponse> joinGroup(String groupId) {
+        return mApi.joinGroup(getRequestBody(new JoinGroupRequest(groupId)));
     }
 
     public Observable<DefaultConversationResponse> getDefaultConversation() {

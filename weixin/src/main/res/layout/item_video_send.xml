@@ -98,7 +98,7 @@
                     app:bubble_showText="false"
                     />
 
-                <com.lqr.wechat.widget.CircularProgressBar
+                <com.cgy.weixin.widget.CircularProgressBar
                     android:id="@+id/cpbLoading"
                     android:layout_width="30dp"
                     android:layout_height="30dp"

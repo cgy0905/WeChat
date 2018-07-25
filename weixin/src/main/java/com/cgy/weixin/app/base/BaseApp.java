@@ -14,11 +14,11 @@ import java.util.List;
  * Created by cgy
  * 2018/5/24  14:34
  */
-public class BaseApp extends MultiDexApplication{
+public class BaseApp extends MultiDexApplication {
 
     public static List<Activity> activities = new LinkedList<>();
 
-    //一下属性应用于真个应用程序，合理利用资源，减少资源浪费
+    //以下属性应用于真个应用程序，合理利用资源，减少资源浪费
     private static Context mContext;//上下文
     private static Thread mMainThread;//主线程
     private static long mMainThreadId;//主线程id

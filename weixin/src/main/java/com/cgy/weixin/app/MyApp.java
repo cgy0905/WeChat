@@ -24,23 +24,26 @@ import com.cgy.weixin.model.redpacket.SignModel;
 import com.cgy.weixin.model.response.ContactNotificationMessageData;
 import com.cgy.weixin.utils.LogUtils;
 import com.cgy.weixin.utils.PinyinUtils;
-import com.cgy.weixin.utils.RedPicketUtil;
+import com.cgy.weixin.utils.RedPacketUtil;
 import com.cgy.weixin.utils.UIUtils;
 import com.lqr.emoji.LQREmotionKit;
 import com.lqr.imagepicker.ImagePicker;
 import com.lqr.imagepicker.loader.ImageLoader;
 import com.lqr.imagepicker.view.CropImageView;
+import com.mob.MobSDK;
 import com.yunzhanghu.redpacketsdk.RPInitRedPacketCallback;
 import com.yunzhanghu.redpacketsdk.RPValueCallback;
 import com.yunzhanghu.redpacketsdk.RedPacket;
 import com.yunzhanghu.redpacketsdk.bean.RedPacketInfo;
 import com.yunzhanghu.redpacketsdk.bean.TokenData;
 import com.yunzhanghu.redpacketsdk.constant.RPConstant;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.litepal.LitePal;
 
 import java.util.List;
+
 import io.rong.imlib.AnnotationNotFoundException;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.Conversation;
@@ -98,6 +101,7 @@ public class MyApp extends BaseApp implements RongIMClient.OnReceiveMessageListe
                     .into(imageView);
         });
         //初始化ShareSDK
+        MobSDK.init(getContext());
     }
 
     @Override
@@ -383,7 +387,7 @@ public class MyApp extends BaseApp implements RongIMClient.OnReceiveMessageListe
 
             @Override
             public RedPacketInfo initCurrentUserSync() {
-                return RedPicketUtil.getCurrentUserInfo();
+                return RedPacketUtil.getCurrentUserInfo();
             }
         });
         //开启红包相关日志输出

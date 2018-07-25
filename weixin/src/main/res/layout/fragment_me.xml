@@ -56,7 +56,7 @@
             android:layout_height="40px"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="@dimen/option_item_margin_right"
-            android:src="@mipmap/ic_qr_code"/>
+            android:src="@mipmap/ic_gy_code"/>
     </com.zhy.autolayout.AutoLinearLayout>
     <com.lqr.optionitemview.OptionItemView
         android:id="@+id/oivAlbum"

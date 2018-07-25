@@ -140,15 +140,12 @@ public class RegisterAtPresenter extends BasePresenter<IRegisterAtView> {
         }
 
         ApiRetrofit.getInstance().verifyCode(AppConst.REGION, phone, code)
-                .flatMap(new Func1<VerifyCodeResponse, Observable<RegisterResponse>>() {
-                    @Override
-                    public Observable<RegisterResponse> call(VerifyCodeResponse verifyCodeResponse) {
-                        int code1 = verifyCodeResponse.getCode();
-                        if (code1 == 200) {
-                            return ApiRetrofit.getInstance().register(nickName, password, verifyCodeResponse.getResult().getVerification_token());
-                        } else {
-                            return Observable.error(new ServerException(UIUtils.getString(R.string.vertify_code_error) + code1));
-                        }
+                .flatMap((Func1<VerifyCodeResponse, Observable<RegisterResponse>>) verifyCodeResponse -> {
+                    int code1 = verifyCodeResponse.getCode();
+                    if (code1 == 200) {
+                        return ApiRetrofit.getInstance().register(nickName, password, verifyCodeResponse.getResult().getVerification_token());
+                    } else {
+                        return Observable.error(new ServerException(UIUtils.getString(R.string.vertify_code_error) + code1));
                     }
                 })
                 .flatMap((Func1<RegisterResponse, Observable<LoginResponse>>) registerResponse -> {

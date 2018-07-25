@@ -214,7 +214,7 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
 
     public void deleteGroupMembers(ArrayList<String> selectedIds) {
         mContext.showWaitingDialog(UIUtils.getString(R.string.please_wait));
-        ApiRetrofit.getInstance().deleGroupMember(mSessionId, selectedIds)
+        ApiRetrofit.getInstance().deleteGroupMember(mSessionId, selectedIds)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(deleteGroupMemberResponse -> {
@@ -301,7 +301,7 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
         String tip = "";
         if (mGroups.getRole().equalsIgnoreCase("0")) {
             tip = UIUtils.getString(R.string.are_you_sure_to_dismiss_this_group);
-            quitGroupResponseObservable = ApiRetrofit.getInstance().dissmissGroup(mSessionId);
+            quitGroupResponseObservable = ApiRetrofit.getInstance().dismissGroup(mSessionId);
         } else {
             tip = UIUtils.getString(R.string.you_will_never_receive_any_msg_after_quit);
             quitGroupResponseObservable = ApiRetrofit.getInstance().quitGroup(mSessionId);
@@ -376,7 +376,7 @@ public class SessionInfoAtPresenter extends BasePresenter<ISessionInfoAtView> {
         EditText etName = (EditText) view.findViewById(R.id.etName);
         etName.setText(mDisplayName);
         etName.setSelection(mDisplayName.length());
-        view.findViewById(R.id.tvCancle).setOnClickListener(v -> mSetDisplayNameDialog.dismiss());
+        view.findViewById(R.id.tvCancel).setOnClickListener(v -> mSetDisplayNameDialog.dismiss());
         view.findViewById(R.id.tvOk).setOnClickListener(v -> {
             String displayName = etName.getText().toString().trim();
             if (!TextUtils.isEmpty(displayName)) {

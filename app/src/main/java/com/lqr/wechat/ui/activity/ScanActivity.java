@@ -244,7 +244,7 @@ public class ScanActivity extends BaseActivity<IScanAtView, ScanAtPresenter> imp
                 UIUtils.showToast(UIUtils.getString(R.string.you_already_in_this_group));
                 return;
             } else {
-                ApiRetrofit.getInstance().JoinGroup(groupId)
+                ApiRetrofit.getInstance().joinGroup(groupId)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .filter(joinGroupResponse -> joinGroupResponse != null && joinGroupResponse.getCode() == 200)

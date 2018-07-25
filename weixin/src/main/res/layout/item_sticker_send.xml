@@ -40,14 +40,14 @@
             android:gravity="right"
             android:orientation="vertical">
 
-            <!-- 昵称，当在群组中则要显示 -->
+            <!-- 昵称,当在群组中则要显示 -->
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:text="CSDN_LQR"
+                android:text="CGY"
                 android:textColor="#666666"
                 android:textSize="12sp"
                 android:visibility="visible"/>

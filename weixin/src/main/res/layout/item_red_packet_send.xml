@@ -81,40 +81,49 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
-                android:text="CSDN_LQR"
+                android:text="CGY"
                 android:textColor="#666666"
                 android:textSize="12sp"
                 android:visibility="visible"/>
 
-            <LinearLayout
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/img_location_send"
-                android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="260dp"
+                android:layout_height="100dp"
+                android:background="@mipmap/_bg_from_hongbao">
 
-                <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="left|center_vertical"
-                    android:maxWidth="240dp"
-                    android:minHeight="40dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="嗯嗯嗯嗯嗯嗯嗯"
-                    android:textColor="#444444"
-                    android:textColorLink="#666666"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvRedPacketGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="恭喜发财，大吉大利"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="领取红包"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="微信红包"
+                    android:textColor="@color/gray0"
                     android:textSize="12sp"/>
 
-                <ImageView
-                    android:id="@+id/ivLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
-                    android:maxWidth="240dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/default_location"/>
-            </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
         <!-- 人物头像 -->
 

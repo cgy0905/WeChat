@@ -116,7 +116,7 @@
     <string name="add_near_friend">添加身边的朋友</string>
     <string name="create_group_face_to_face">面对面建群</string>
     <string name="create_group_with_near_friend">与身边的朋友进入同一个群聊</string>
-    <string name="scan_qr_code_business_card">扫描二维码名片</string>
+    <string name="scan_gy_code_business_card">扫描二维码名片</string>
     <string name="phone_contacts">手机联系人</string>
     <string name="add_friend_from_contact">添加或邀请通讯录中的朋友</string>
     <string name="public_number">公众号</string>
@@ -165,6 +165,7 @@
     <string name="phone_number">电话号码</string>
     <string name="add_phone_number">添加电话号码</string>
     <string name="describe">描述</string>
+    <string name="add_more_alias_info">添加更多备注信息</string>
     <string name="add_picture">附加图片</string>
     <string name="add_business_card_or_pic">添加名片或相关图片</string>
     <string name="alias_no_empty">备注名不能为空</string>
@@ -228,7 +229,7 @@
     <!--群信息-->
     <string name="group_name">群聊名称</string>
     <string name="untitled">未命名</string>
-    <string name="group_qr_code">群二维码</string>
+    <string name="group_gy_code">群二维码</string>
     <string name="group_announcement">群公告</string>
     <string name="message_free">消息免打扰</string>
     <string name="my_nickname_in_this_group">我在本群的昵称</string>
@@ -249,6 +250,7 @@
     <string name="exit_group_fail">退出失败</string>
 
     <!--设置-->
+    <string name="account_and_security">帐号与安全</string>
     <string name="new_message_remind">新消息提醒</string>
     <string name="do_not_disturb_mode">勿扰模式</string>
     <string name="chat">聊天</string>
@@ -269,4 +271,6 @@
     <string name="CSDN_LQR_personal_development">CSDN_LQR个人开发</string>
     <string name="fun_and_enjoy">兴趣使然</string>
     <string name="CGY_personal_development">CGY个人开发</string>
+
+
 </resources>

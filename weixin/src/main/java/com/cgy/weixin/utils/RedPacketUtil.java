@@ -24,7 +24,7 @@ import io.rong.imlib.model.UserInfo;
  * 2018/6/1  16:42
  * 云账户红包工具
  */
-public class RedPicketUtil {
+public class RedPacketUtil {
 
     public static void startRedPacket(FragmentActivity activity, UserInfo toUserInfo, RPSendPacketCallback callback) {
         if (toUserInfo == null)

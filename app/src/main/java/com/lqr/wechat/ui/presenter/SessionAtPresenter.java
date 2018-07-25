@@ -58,7 +58,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
 
     public Conversation.ConversationType mConversationType;
     private String mSessionId;
-    private String mPushCotent = "";//接收方离线时需要显示的push消息内容。
+    private String mPushContent = "";//接收方离线时需要显示的push消息内容。
     private String mPushData = "";//接收方离线时需要在push消息中携带的非显示内容。
     private int mMessageCount = 5;//一次获取历史消息的最大数量
 
@@ -302,7 +302,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
     }
 
     public void sendTextMsg(String content) {
-        RongIMClient.getInstance().sendMessage(mConversationType, mSessionId, TextMessage.obtain(content), mPushCotent, mPushData,
+        RongIMClient.getInstance().sendMessage(mConversationType, mSessionId, TextMessage.obtain(content), mPushContent, mPushData,
                 new RongIMClient.SendMessageCallback() {// 发送消息的回调
                     @Override
                     public void onError(Integer integer, RongIMClient.ErrorCode errorCode) {
@@ -329,7 +329,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
 
     public void sendImgMsg(Uri imageFileThumbUri, Uri imageFileSourceUri) {
         ImageMessage imgMsg = ImageMessage.obtain(imageFileThumbUri, imageFileSourceUri);
-        RongIMClient.getInstance().sendImageMessage(mConversationType, mSessionId, imgMsg, mPushCotent, mPushData,
+        RongIMClient.getInstance().sendImageMessage(mConversationType, mSessionId, imgMsg, mPushContent, mPushData,
                 new RongIMClient.SendImageMessageCallback() {
                     @Override
                     public void onAttached(Message message) {
@@ -367,7 +367,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
 
     public void sendFileMsg(File file) {
         Message fileMessage = Message.obtain(mSessionId, mConversationType, FileMessage.obtain(Uri.fromFile(file)));
-        RongIMClient.getInstance().sendMediaMessage(fileMessage, mPushCotent, mPushData, new IRongCallback.ISendMediaMessageCallback() {
+        RongIMClient.getInstance().sendMediaMessage(fileMessage, mPushContent, mPushData, new IRongCallback.ISendMediaMessageCallback() {
             @Override
             public void onProgress(Message message, int progress) {
                 //发送进度
@@ -403,7 +403,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
 
     public void sendLocationMessage(LocationData locationData) {
         LocationMessage message = LocationMessage.obtain(locationData.getLat(), locationData.getLng(), locationData.getPoi(), Uri.parse(locationData.getImgUrl()));
-        RongIMClient.getInstance().sendLocationMessage(Message.obtain(mSessionId, mConversationType, message), mPushCotent, mPushData, new IRongCallback.ISendMessageCallback() {
+        RongIMClient.getInstance().sendLocationMessage(Message.obtain(mSessionId, mConversationType, message), mPushContent, mPushData, new IRongCallback.ISendMessageCallback() {
             @Override
             public void onAttached(Message message) {
                 //保存数据库成功
@@ -433,7 +433,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
                 return;
             }
             VoiceMessage voiceMessage = VoiceMessage.obtain(audioPath, duration);
-            RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId, mConversationType, voiceMessage), mPushCotent, mPushData, new IRongCallback.ISendMessageCallback() {
+            RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId, mConversationType, voiceMessage), mPushContent, mPushData, new IRongCallback.ISendMessageCallback() {
                 @Override
                 public void onAttached(Message message) {
                     //保存数据库成功
@@ -477,7 +477,7 @@ public class SessionAtPresenter extends BaseFragmentPresenter<ISessionAtView> {
         @Override
         public void onSendPacketSuccess(RedPacketInfo redPacketInfo) {
             RedPacketMessage rpMsg = RedPacketMessage.obtain(redPacketInfo.redPacketId, redPacketInfo.fromNickName, redPacketInfo.redPacketType, redPacketInfo.redPacketGreeting);
-            RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId, mConversationType, rpMsg), mPushCotent, mPushData, new IRongCallback.ISendMessageCallback() {
+            RongIMClient.getInstance().sendMessage(Message.obtain(mSessionId, mConversationType, rpMsg), mPushContent, mPushData, new IRongCallback.ISendMessageCallback() {
                 @Override
                 public void onAttached(Message message) {
                     //保存数据库成功
